@@ -4,11 +4,25 @@ __pycache__/
 build/
 dist/
 wheels/
-*.egg-info
+*.egg-info/
 
 # Virtual environments
-.venv
+.venv/
+backend/.venv/
+frontend/.venv/
 
 # Environment files
 .env
 .env.*
+backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.*
+
+# Frontend dependencies and builds
+frontend/node_modules/
+frontend/dist/
+
+# Runtime uploads
+uploads/*
+!uploads/.gitkeep
