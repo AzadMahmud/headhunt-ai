@@ -1,4 +1,5 @@
 from pathlib import Path
+import uuid
 from fastapi import UploadFile
 
 
@@ -12,7 +13,11 @@ def save_resume(file: UploadFile) -> Path:
 
     UPLOAD_DIR.mkdir(exist_ok=True)
 
-    destination = UPLOAD_DIR / file.filename
+    suffix = Path(file.filename).suffix
+
+    unique_filename = f"{uuid.uuid4()}{suffix}"
+
+    destination = UPLOAD_DIR / unique_filename
 
     with destination.open("wb") as buffer:
         buffer.write(file.file.read())
